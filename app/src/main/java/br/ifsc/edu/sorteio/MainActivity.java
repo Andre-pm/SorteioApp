@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     EditText editTextInicial,editTextFinal;
@@ -21,10 +24,18 @@ public class MainActivity extends AppCompatActivity {
         textViewResultado = findViewById(R.id.Resultado);
     }
 
-    public void sortear(View view) {
-        int inicial = Integer.parseInt(editTextInicial.getText().toString());
+    public void sorteiaNumero(View view) {
 
-        textViewResultado.setText(Integer.toString(inicial));
+
+//        TextView textView = findViewById(R.id.editTextInicial);
+//        TextView textView = findViewById(R.id.editTextFinal);
+//        Button button = (Button)view;
+//        button.setText("oi");
+
+        int inicial = Integer.parseInt(editTextInicial.getText().toString());
+        int Fim = Integer.parseInt(editTextFinal.getText().toString());
+        int numeroSorteado = new Random().nextInt(((Fim - inicial) +1)+ inicial);
+        textViewResultado.setText(Integer.toString(numeroSorteado));
 
     }
 }
